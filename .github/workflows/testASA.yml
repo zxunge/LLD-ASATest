@@ -15,7 +15,7 @@ jobs:
 
       - name: install dependencies
         run: |
-          sudo apt-get install clang-18.1.7
+          sudo apt-get install clang-18
 
       - name: test ASA switch
         id: testASA
