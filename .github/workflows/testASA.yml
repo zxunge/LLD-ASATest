@@ -1,0 +1,22 @@
+name: LLDASATest
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: checkout
+        uses: actions/checkout@v2          
+
+      - name: install dependencies
+        run: |
+          sudo apt-get install clang-18.1.7
+
+      - name: test ASA switch
+        id: testASA
+        run: lld --add-stdcall-alias
