@@ -19,4 +19,6 @@ jobs:
 
       - name: test ASA switch
         id: testASA
-        run: lld-link --add-stdcall-alias
+        run: |
+          lld-link --version
+          lld-link --add-stdcall-alias
