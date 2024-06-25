@@ -10,15 +10,24 @@ jobs:
     runs-on: windows-latest
     steps:
 
+      - uses: msys2/setup-msys2@v2
+        with:
+          msystem: MINGW32
+          update: true
+          install: >-
+            cmake
+          
       - name: checkout
         uses: actions/checkout@v2          
 
-      - name: install dependencies
+      - name: test cmake generators
+        shell: msys2 {0}
         run: |
+          cmake -G
           
 
       - name: test ASA switch
         id: testASA
         run: |
-          lld-link --version
-          lld-link --add-stdcall-alias
+          ld.lld --version
+          ld.lld --add-stdcall-alias
